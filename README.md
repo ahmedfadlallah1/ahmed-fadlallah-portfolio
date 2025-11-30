@@ -63,6 +63,7 @@ To make the contact form fully functional, update the EmailJS credentials in `co
 - **Main Theme:** The core site (`index.html`, `about.html`, `projects.html`) utilizes a dark gradient background (`#0f0f0f` to `#1a1a1a`) with blue/cyan accents.  
 - **Contact Page:** The `contact.html` file currently uses a distinct Light Theme (`bg-white`) and relies on GSAP for animations, differing slightly from the main Anime.js implementation.  
 
+---
 
-Made with ❤️ and ☕ by Ahmed Fadlallah
+Built with ❤️ and ☕ by Ahmed Fadlallah
 
