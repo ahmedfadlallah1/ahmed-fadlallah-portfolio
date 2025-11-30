@@ -27,16 +27,17 @@ A modern, responsive portfolio website designed for an AI & Machine Learning Eng
 - **Services:**  
   - EmailJS - Form submission handling  
 
-## 📂 File Structure
-/
-├── index.html # Main Landing Page (Dark Theme, Single Page Scroll)
-├── about.html # Detailed About Me page (Timeline & Education)
-├── projects.html # Detailed Projects Showcase (Grid & Modals)
-├── contact.html # Standalone Contact Page (Light Theme variant)
-├── main.js # Core logic for animations, charts, and routing
-└── resources/ # Folder for images and static assets
-├── image_bebd40.png
-└── [other assets]
+### 📂 File Structure
+
+* `/`
+    * `index.html` - Main Landing Page (Dark Theme, Single Page Scroll)
+    * `about.html` - Detailed About Me page (Timeline & Education)
+    * `projects.html` - Detailed Projects Showcase (Grid & Modals)
+    * `contact.html` - Standalone Contact Page (Light Theme variant)
+    * `main.js` - Core logic for animations, charts, and routing
+    * `resources/` - Folder for images and static assets
+        * `image_bebd40.png`
+        * `[other assets]`
 
 
 ## 💻 How to Run
