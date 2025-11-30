@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Ahmed Fadlallah</title>
+    <meta name="description" content="Learn more about Ahmed Fadlallah, his professional journey, education, and expertise in AI and machine learning.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #00d4ff;
+            border-radius: 50%;
+            border: 3px solid #1a1a1a;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, #00d4ff, transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">AF</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="about.html" class="nav-link text-blue-400 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="projects.html" class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="contact.html" class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6">About Me</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Passionate AI & ML Engineer dedicated to transforming complex challenges into intelligent solutions
+            </p>
+        </div>
+    </section>
+    
+    <!-- Professional Journey -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-6">Professional Journey</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    My path in artificial intelligence and machine learning, from academic foundations to practical applications.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold mb-8 gradient-text">Education & Training</h3>
+                    <div class="space-y-8">
+                        <div class="timeline-item">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="text-lg font-semibold">Bachelor of Computer Science</h4>
+                                    <span class="text-blue-400 text-sm">2023 - Present</span>
+                                </div>
+                                <p class="text-gray-300 mb-2">Alamein International University</p>
+                                <p class="text-sm text-gray-400">
+                                    Specializing in Artificial Intelligence and Machine Learning with focus on 
+                                    deep learning, computer vision, and natural language processing.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="text-lg font-semibold">AI & ML Engineering Internship</h4>
+                                    <span class="text-blue-400 text-sm">2024 - Present</span>
+                                </div>
+                                <p class="text-gray-300 mb-2">National Telecommunication Institute (NTI)</p>
+                                <p class="text-sm text-gray-400">
+                                    Hands-on experience in developing AI solutions for telecommunications, 
+                                    working with real-world datasets and production-level ML systems.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="text-lg font-semibold">Certified ML Practitioner</h4>
+                                    <span class="text-blue-400 text-sm">2024</span>
+                                </div>
+                                <p class="text-gray-300 mb-2">Various Online Platforms</p>
+                                <p class="text-sm text-gray-400">
+                                    Completed advanced courses in deep learning, reinforcement learning, 
+                                    and MLOps from leading educational platforms and institutions.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-8">
+                    <h3 class="text-2xl font-bold mb-8 gradient-text">Professional Experience</h3>
+                    <div class="space-y-8">
+                        <div class="timeline-item">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="text-lg font-semibold">Machine Learning Engineer Intern</h4>
+                                    <span class="text-blue-400 text-sm">Current</span>
+                                </div>
+                                <p class="text-gray-300 mb-2">National Telecommunication Institute (NTI)</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Developing AI models for network optimization</li>
+                                    <li>• Implementing computer vision solutions for quality control</li>
+                                    <li>• Building predictive analytics systems</li>
+                                    <li>• Collaborating with senior engineers on production deployments</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="text-lg font-semibold">Research Assistant</h4>
+                                    <span class="text-blue-400 text-sm">2024</span>
+                                </div>
+                                <p class="text-gray-300 mb-2">Alamein International University</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Conducting research in deep learning applications</li>
+                                    <li>• Assisting in academic paper preparation</li>
+                                    <li>• Mentoring junior students in AI/ML concepts</li>
+                                    <li>• Participating in university innovation projects</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="bg-gray-800 p-6 rounded-lg">
+                                <div class="flex justify-between items-start mb-3">
+                                    <h4 class="text-lg font-semibold">Freelance AI Developer</h4>
+                                    <span class="text-blue-400 text-sm">2023 - Present</span>
+                                </div>
+                                <p class="text-gray-300 mb-2">Independent Projects</p>
+                                <ul class="text-sm text-gray-400 space-y-1">
+                                    <li>• Building custom ML solutions for small businesses</li>
+                                    <li>• Developing computer vision applications</li>
+                                    <li>• Creating data analysis and visualization tools</li>
+                                    <li>• Providing technical consultation services</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills & Expertise -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-6">Skills & Expertise</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive technical skill set spanning programming, frameworks, and specialized AI/ML domains.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-6 gradient-text">Programming Languages</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Python</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-22 h-2 bg-blue-500 rounded-full" style="width: 95%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">95%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">JavaScript</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-16 h-2 bg-green-500 rounded-full" style="width: 70%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">70%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Java</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-14 h-2 bg-red-500 rounded-full" style="width: 60%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">60%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">C++</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-10 h-2 bg-purple-500 rounded-full" style="width: 45%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">45%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-6 gradient-text">ML Frameworks</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">TensorFlow</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-20 h-2 bg-orange-500 rounded-full" style="width: 85%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">PyTorch</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-18 h-2 bg-blue-500 rounded-full" style="width: 80%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">80%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Scikit-learn</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-22 h-2 bg-yellow-500 rounded-full" style="width: 90%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">90%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Keras</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-20 h-2 bg-red-500 rounded-full" style="width: 85%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-6 gradient-text">Specializations</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Deep Learning</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-22 h-2 bg-purple-500 rounded-full" style="width: 92%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">92%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Computer Vision</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-20 h-2 bg-green-500 rounded-full" style="width: 85%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">85%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">NLP</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-18 h-2 bg-blue-500 rounded-full" style="width: 78%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">78%</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="font-medium">Reinforcement Learning</span>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-24 h-2 bg-gray-700 rounded-full">
+                                    <div class="w-16 h-2 bg-orange-500 rounded-full" style="width: 72%;"></div>
+                                </div>
+                                <span class="text-sm text-gray-400">72%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Personal Interests -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold gradient-text mb-6">Beyond Technology</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Exploring interests that fuel creativity and innovation in both personal and professional life.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-lg font-semibold mb-2">Continuous Learning</h3>
+                    <p class="text-gray-300 text-sm">
+                        Always exploring new technologies, research papers, and emerging trends in AI and ML.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-lg font-semibold mb-2">Innovation</h3>
+                    <p class="text-gray-300 text-sm">
+                        Passionate about creating solutions that push the boundaries of what's possible with AI.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4">🌐</div>
+                    <h3 class="text-lg font-semibold mb-2">Open Source</h3>
+                    <p class="text-gray-300 text-sm">
+                        Actively contributing to open-source AI projects and sharing knowledge with the community.
+                    </p>
+                </div>
+                
+                <div class="glass-card p-6 text-center hover:scale-105 transition-transform duration-300">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-lg font-semibold mb-2">Problem Solving</h3>
+                    <p class="text-gray-300 text-sm">
+                        Enjoy tackling complex challenges and finding elegant solutions through systematic approach.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-80 border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold gradient-text mb-4">Ahmed Fadlallah</div>
+                <p class="text-gray-400 mb-4">
+                    AI & ML Engineer transforming ideas into intelligent solutions
+                </p>
+                <p class="text-gray-500 text-sm">
+                    © 2025 Ahmed Fadlallah. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Initialize animations -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 800,
+                            easing: 'easeOutQuad'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.glass-card').forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

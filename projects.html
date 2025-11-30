@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ahmed Fadlallah</title>
+    <meta name="description" content="Explore Ahmed Fadlallah's portfolio of AI and machine learning projects, from neural networks to computer vision applications.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Core Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+        }
+        
+        .filter-btn {
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .filter-btn.active {
+            background: #00d4ff;
+            color: #000000;
+            border-color: #00d4ff;
+        }
+        
+        .filter-btn:hover {
+            border-color: #00d4ff;
+            color: #00d4ff;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4ff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black bg-opacity-80 backdrop-filter backdrop-blur-lg border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-2xl font-bold gradient-text">AF</a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium">Home</a>
+                        <a href="about.html" class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium">About</a>
+                        <a href="projects.html" class="nav-link text-blue-400 px-3 py-2 text-sm font-medium">Projects</a>
+                        <a href="contact.html" class="nav-link text-white hover:text-blue-400 px-3 py-2 text-sm font-medium">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold gradient-text mb-6">My Projects</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                A showcase of innovative AI and machine learning solutions that solve real-world problems
+            </p>
+        </div>
+    </section>
+    
+    <!-- Project Filters -->
+    <section class="py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active px-6 py-3 rounded-lg font-semibold" data-filter="all">All Projects</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-semibold" data-filter="ai-ml">AI/ML</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-semibold" data-filter="computer-vision">Computer Vision</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-semibold" data-filter="nlp">NLP</button>
+                <button class="filter-btn px-6 py-3 rounded-lg font-semibold" data-filter="data-science">Data Science</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Grid -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Neural Network Optimizer -->
+                <div class="project-card glass-card p-6 ai-ml" data-project="neural-optimizer">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-6xl">🧠</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Neural Network Optimizer</h3>
+                    <p class="text-gray-300 mb-4">
+                        Advanced neural network optimization framework using genetic algorithms and gradient descent variations for improved convergence.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">TensorFlow</span>
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">NumPy</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="openProjectModal('neural-optimizer')" class="text-blue-400 hover:text-blue-300">View Details</button>
+                        <a href="#" class="text-gray-400 hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Real-time Object Detection -->
+                <div class="project-card glass-card p-6 computer-vision" data-project="object-detection">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-6xl">👁️</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Real-time Object Detection</h3>
+                    <p class="text-gray-300 mb-4">
+                        YOLO-based object detection system with real-time processing capabilities for surveillance and security applications.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">OpenCV</span>
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">YOLO</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="openProjectModal('object-detection')" class="text-blue-400 hover:text-blue-300">View Details</button>
+                        <a href="#" class="text-gray-400 hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Sentiment Analysis Engine -->
+                <div class="project-card glass-card p-6 nlp" data-project="sentiment-analysis">
+                    <div class="h-48 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-6xl">💬</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Sentiment Analysis Engine</h3>
+                    <p class="text-gray-300 mb-4">
+                        Advanced NLP model for sentiment analysis with multi-language support and real-time processing capabilities.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">Transformers</span>
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">BERT</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="openProjectModal('sentiment-analysis')" class="text-blue-400 hover:text-blue-300">View Details</button>
+                        <a href="#" class="text-gray-400 hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Predictive Analytics Platform -->
+                <div class="project-card glass-card p-6 data-science" data-project="predictive-analytics">
+                    <div class="h-48 bg-gradient-to-br from-indigo-500 to-pink-600 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-6xl">📊</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Predictive Analytics Platform</h3>
+                    <p class="text-gray-300 mb-4">
+                        Comprehensive data science platform for predictive analytics with automated feature engineering and model selection.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-sm">Pandas</span>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">Scikit-learn</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="openProjectModal('predictive-analytics')" class="text-blue-400 hover:text-blue-300">View Details</button>
+                        <a href="#" class="text-gray-400 hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Reinforcement Learning Agent -->
+                <div class="project-card glass-card p-6 ai-ml" data-project="rl-agent">
+                    <div class="h-48 bg-gradient-to-br from-yellow-500 to-orange-600 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-6xl">🤖</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Reinforcement Learning Agent</h3>
+                    <p class="text-gray-300 mb-4">
+                        Autonomous agent trained using deep reinforcement learning for complex decision-making scenarios and game environments.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-sm">PyTorch</span>
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm">RLlib</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="openProjectModal('rl-agent')" class="text-blue-400 hover:text-blue-300">View Details</button>
+                        <a href="#" class="text-gray-400 hover:text-white">GitHub</a>
+                    </div>
+                </div>
+                
+                <!-- Image Classification System -->
+                <div class="project-card glass-card p-6 computer-vision" data-project="image-classification">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-6xl">📸</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Image Classification System</h3>
+                    <p class="text-gray-300 mb-4">
+                        Deep learning-based image classification with convolutional neural networks and transfer learning techniques.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm">Python</span>
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm">Keras</span>
+                        <span class="bg-yellow-500 text-white px-3 py-1 rounded-full text-sm">CNN</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <button onclick="openProjectModal('image-classification')" class="text-blue-400 hover:text-blue-300">View Details</button>
+                        <a href="#" class="text-gray-400 hover:text-white">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Project Modal -->
+    <div id="project-modal" class="project-modal">
+        <div class="modal-content">
+            <div class="glass-card p-8">
+                <div class="flex justify-between items-start mb-6">
+                    <h2 id="modal-title" class="text-3xl font-bold gradient-text"></h2>
+                    <button onclick="closeProjectModal()" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+                </div>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-80 border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="text-2xl font-bold gradient-text mb-4">Ahmed Fadlallah</div>
+                <p class="text-gray-400 mb-4">
+                    AI & ML Engineer transforming ideas into intelligent solutions
+                </p>
+                <p class="text-gray-500 text-sm">
+                    © 2025 Ahmed Fadlallah. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Project Data -->
+    <script>
+        const projectData = {
+            'neural-optimizer': {
+                title: 'Neural Network Optimizer',
+                description: 'Advanced optimization framework for neural networks',
+                longDescription: 'A comprehensive neural network optimization framework that combines genetic algorithms with advanced gradient descent variations. This project focuses on improving convergence speed and model accuracy through intelligent hyperparameter tuning and adaptive learning rate strategies.',
+                features: [
+                    'Genetic algorithm-based hyperparameter optimization',
+                    'Adaptive learning rate scheduling',
+                    'Multiple optimization algorithms (Adam, RMSprop, SGD)',
+                    'Real-time performance monitoring',
+                    'Automated model architecture search'
+                ],
+                techStack: ['Python', 'TensorFlow', 'NumPy', 'Matplotlib', 'Pandas'],
+                challenges: 'The main challenge was balancing exploration and exploitation in the genetic algorithm while maintaining computational efficiency for large neural networks.',
+                solution: 'Implemented a hybrid approach combining genetic algorithms with gradient-based optimization, using parallel processing and early stopping mechanisms.',
+                results: 'Achieved 15-20% improvement in convergence speed compared to standard optimization methods across various benchmark datasets.'
+            },
+            'object-detection': {
+                title: 'Real-time Object Detection System',
+                description: 'YOLO-based object detection for surveillance applications',
+                longDescription: 'A high-performance object detection system built on YOLO (You Only Look Once) architecture, optimized for real-time processing in surveillance and security applications. The system can detect and track multiple objects simultaneously with high accuracy.',
+                features: [
+                    'Real-time object detection and tracking',
+                    'Support for 80+ object categories',
+                    'High-resolution video processing',
+                    'Motion detection and alerting',
+                    'Web-based monitoring interface'
+                ],
+                techStack: ['Python', 'OpenCV', 'YOLOv8', 'PyTorch', 'Flask'],
+                challenges: 'Maintaining high accuracy while achieving real-time performance on standard hardware was the primary challenge.',
+                solution: 'Optimized the YOLO model through quantization and pruning techniques, implemented efficient video processing pipelines, and used GPU acceleration.',
+                results: 'Achieved 30+ FPS processing speed with 95%+ accuracy on standard surveillance footage, reducing false positives by 40%.'
+            },
+            'sentiment-analysis': {
+                title: 'Sentiment Analysis Engine',
+                description: 'Multi-language sentiment analysis with BERT',
+                longDescription: 'An advanced natural language processing system for sentiment analysis supporting multiple languages. Built on transformer architecture using pre-trained BERT models, fine-tuned for specific sentiment analysis tasks across different domains.',
+                features: [
+                    'Multi-language sentiment analysis',
+                    'Real-time text processing',
+                    'Domain-specific fine-tuning',
+                    'Emotion classification (happy, sad, angry, etc.)',
+                    'Confidence scoring for predictions'
+                ],
+                techStack: ['Python', 'Transformers', 'BERT', 'PyTorch', 'NLTK'],
+                challenges: 'Handling context-dependent sentiment and sarcasm detection across different languages and cultural contexts.',
+                solution: 'Implemented ensemble methods combining multiple BERT variants and used transfer learning with domain-specific fine-tuning.',
+                results: 'Achieved 92% accuracy on benchmark datasets across multiple languages, with significant improvement in handling ambiguous cases.'
+            },
+            'predictive-analytics': {
+                title: 'Predictive Analytics Platform',
+                description: 'Automated feature engineering and model selection',
+                longDescription: 'A comprehensive data science platform that automates the process of feature engineering, model selection, and hyperparameter tuning. The platform can handle various data types and automatically generate predictive models for different business use cases.',
+                features: [
+                    'Automated feature engineering',
+                    'Intelligent model selection',
+                    'Hyperparameter optimization',
+                    'Model interpretability tools',
+                    'Production deployment pipeline'
+                ],
+                techStack: ['Python', 'Pandas', 'Scikit-learn', 'XGBoost', 'Docker'],
+                challenges: 'Creating a system that works effectively across different data types and business domains without manual intervention.',
+                solution: 'Developed a meta-learning approach that analyzes dataset characteristics and selects appropriate preprocessing and modeling strategies.',
+                results: 'Reduced model development time by 70% while maintaining or improving accuracy compared to manually developed models.'
+            },
+            'rl-agent': {
+                title: 'Reinforcement Learning Agent',
+                description: 'Deep RL agent for complex decision-making',
+                longDescription: 'An autonomous agent trained using deep reinforcement learning techniques to make optimal decisions in complex, dynamic environments. The agent uses advanced RL algorithms including Deep Q-Networks and Policy Gradients.',
+                features: [
+                    'Deep Q-Network implementation',
+                    'Policy Gradient methods',
+                    'Multi-agent coordination',
+                    'Environment adaptation',
+                    'Real-time decision making'
+                ],
+                techStack: ['Python', 'PyTorch', 'RLlib', 'Gym', 'TensorBoard'],
+                challenges: 'Training stable RL agents that can generalize across different environments and handle sparse reward scenarios.',
+                solution: 'Implemented curriculum learning and reward shaping techniques, along with experience replay and target networks.',
+                results: 'Successfully trained agents that outperform baseline methods by 25% in complex navigation and resource allocation tasks.'
+            },
+            'image-classification': {
+                title: 'Image Classification System',
+                description: 'CNN-based image classification with transfer learning',
+                longDescription: 'A sophisticated image classification system built using convolutional neural networks and transfer learning techniques. The system can classify images into multiple categories with high accuracy and provides interpretability features.',
+                features: [
+                    'Transfer learning from pre-trained models',
+                    'Data augmentation techniques',
+                    'Class activation mapping for interpretability',
+                    'Multi-class classification support',
+                    'Real-time inference capabilities'
+                ],
+                techStack: ['Python', 'Keras', 'TensorFlow', 'OpenCV', 'NumPy'],
+                challenges: 'Achieving high accuracy with limited training data while maintaining model interpretability.',
+                solution: 'Used transfer learning from ImageNet pre-trained models and implemented advanced data augmentation strategies.',
+                results: 'Achieved 98% accuracy on test datasets with 50% reduction in training time compared to training from scratch.'
+            }
+        };
+        
+        // Project filtering functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        if (filter === 'all' || card.classList.contains(filter)) {
+                            card.style.display = 'block';
+                            anime({
+                                targets: card,
+                                opacity: [0, 1],
+                                translateY: [20, 0],
+                                duration: 500,
+                                easing: 'easeOutQuad'
+                            });
+                        } else {
+                            anime({
+                                targets: card,
+                                opacity: 0,
+                                translateY: -20,
+                                duration: 300,
+                                easing: 'easeInQuad',
+                                complete: function() {
+                                    card.style.display = 'none';
+                                }
+                            });
+                        }
+                    });
+                });
+            });
+        });
+        
+        // Modal functionality
+        function openProjectModal(projectId) {
+            const project = projectData[projectId];
+            const modal = document.getElementById('project-modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+            
+            title.textContent = project.title;
+            body.innerHTML = `
+                <div class="mb-6">
+                    <p class="text-gray-300 text-lg">${project.longDescription}</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3 gradient-text">Key Features</h4>
+                        <ul class="space-y-2">
+                            ${project.features.map(feature => `<li class="flex items-start space-x-2"><span class="text-blue-400">•</span><span class="text-gray-300">${feature}</span></li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl font-semibold mb-3 gradient-text">Technology Stack</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.techStack.map(tech => `<span class="bg-gray-700 text-white px-3 py-1 rounded-full text-sm">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold mb-3 gradient-text">Challenges & Solutions</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-semibold text-red-400 mb-1">Challenge:</p>
+                            <p class="text-gray-300">${project.challenges}</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-green-400 mb-1">Solution:</p>
+                            <p class="text-gray-300">${project.solution}</p>
+                        </div>
+                        <div>
+                            <p class="font-semibold text-blue-400 mb-1">Results:</p>
+                            <p class="text-gray-300">${project.results}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                        View Live Demo
+                    </button>
+                    <button class="border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white px-6 py-2 rounded-lg font-semibold transition-colors">
+                        View Code
+                    </button>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+            anime({
+                targets: modal,
+                opacity: [0, 1],
+                duration: 300,
+                easing: 'easeOutQuad'
+            });
+        }
+        
+        function closeProjectModal() {
+            const modal = document.getElementById('project-modal');
+            anime({
+                targets: modal,
+                opacity: 0,
+                duration: 300,
+                easing: 'easeInQuad',
+                complete: function() {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProjectModal();
+            }
+        });
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        anime({
+                            targets: entry.target,
+                            opacity: [0, 1],
+                            translateY: [30, 0],
+                            duration: 800,
+                            easing: 'easeOutQuad'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.project-card').forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
